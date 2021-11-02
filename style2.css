@@ -1,0 +1,36 @@
+body{
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+.container{
+    width: 70vw;
+    margin: 50px auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: smaller;
+    border: 1px solid black;
+    padding:1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+.image{
+    width:100%;
+    height:200px;
+    display: none;
+}
+.image.active{
+    display: block;
+}
+.li{
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 16pt;
+    display: block;
+    margin-top:0.5em;
+    margin-left:0.5em;
+    border:1px solid black;
+    padding:0.5em;
+    cursor: pointer;
+}
+.li.active{
+    background:coral;
+}
