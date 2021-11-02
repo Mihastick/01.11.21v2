@@ -1,51 +1,59 @@
-let ul = document.getElementById('ul');
-let imgCont = document.querySelectorAll('.image');
+let i = 0;
 
 let tabs = [
     {
         header: 'Empire State Building',
-        class: 'active',
+        img: 'image/1.jpg',
         target: '#tab1'
     },
     {
         header: 'Statue of Baphomet',
         target: '#tab2',
-        class:'gg',
+        img: 'image/2.jpg',
     },
     {
         header: 'Golden Gate Bridge',
         target: '#tab3',
-        class:'gg',
+        img: 'image/3.jpg',
     },
     {
         header: 'Christ the Redeemer',
         target: '#tab4',
-        class:'gg',
+        img: 'image/4.jpg',
     },
 ]
 
-
+const ul = document.querySelector('#ul');
+const tabBodyItem = document.querySelector('.imgCont');
 
 tabs.forEach(tab=>{
-let li = document.createElement('li');
+
+let li = createElement('li');
 li.innerHTML = tab.header;
+li.dataset.target = i;
 li.classList.add('li');
-li.classList.add(`${tab.class}`);
 li.addEventListener('click',doActiveTab);
 ul.append(li);
+i++;
 });
+
+function createElement(el){
+    let element = document.createElement(el);
+    return element;
+}
 
 function doActiveTab(e){
     clearTab();
-    console.log(e.target.classList.add('active'));
-    // imgCont[1].classList.add('active');
+    let currentHeader = e.target;
+    currentHeader.classList.add('active');
+    let currentBody = tabs[currentHeader.dataset.target];
+    tabBodyItem.innerHTML = `<img src='${currentBody.img}'></img>`;
+    tabBodyItem.classList.add('active');
 }
 
 function clearTab(){
     [...ul.children].forEach(item=>{
         item.classList.remove('active');
     });
-    [...imgCont].forEach(item=>{
-        item.classList.remove('active');
-    });
+
 }
